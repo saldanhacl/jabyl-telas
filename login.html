@@ -2,6 +2,7 @@
  
 <html>
  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
   <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -14,7 +15,6 @@
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
 
-<form action="Script_do_Formulario.php" method="post">
 <center>
 
 </center>
@@ -55,7 +55,6 @@
         <hr class="star-primary">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-		      <form name="sentMessage" id="contactForm" novalidate>
  <table cellspacing="10">
   <tr>
    <td>
@@ -86,7 +85,7 @@
 <br />
 <div id="entrar"></div>
               <div align="center" class="form-group">
-                <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Entrar</button>
+                <button onclick="validarEmail()" class="btn btn-success btn-lg" id="sendMessageButton">Entrar</button>
               </div>
 <div id="forgot"></div>
               <div align="center" class="form-group">
@@ -96,12 +95,46 @@
               <div align="center" class="form-group">
                 <button  class="btn btn-success btn-lg"  id="sendMessageButton">Ainda não possui cadastro?</button>
               </div>
-</form>
-</form>
  </div>
         </div>
       </div>
     </section>
+
+<script>
+  
+  function ajax(operacao, query){
+
+    var ls = "http://127.0.0.1:7100/?operacao=" + operacao + query;
+    console.log(ls);
+      $.ajax({
+
+          "url": ls,
+          "success": function(result) {
+            if (operacao == "realizarLogin")
+              alt(result);
+          }
+
+      });
+
+  }
+
+  function alt(r){
+      if (r.tipo == "locador"){
+      location.href = "Locador.html";
+    } else if (r.tipo == "locatario"){
+      location.href = "Locatario.html";
+    } else location.href = "Estacionamento.html";
+
+  }
+
+
+  function validarEmail(){
+
+    ajax("&realizarLogin", "email=" + $("#useremail").val() + "&senha=" + $("#usersenha").val());
+
+  }
+
+</script>>
 
  </body>
  </html>
