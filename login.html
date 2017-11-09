@@ -47,13 +47,13 @@
                 <div class="content">
                   <form id="login-form" method="post">
                     <div class="form-group">
-                      <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
+                      <input id="useremail" type="text" name="email" required="" class="input-material">
                       <label for="login-username" class="label-material">Email</label>
                     </div>
                     <div class="form-group">
-                      <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
+                      <input id="usersenha" type="password" name="senha" required="" class="input-material">
                       <label for="login-password" class="label-material">Senha</label>
-                    </div><a id="login" href="Locador.html" class="btn btn-primary">Entrar</a>
+                    </div><a id="login" onclick="validarEmail()" class="btn btn-primary">Entrar</a>
                 </div>
               </div>
             </div>
@@ -72,5 +72,44 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
+
+    <script>
+  
+  function ajax(operacao, query){
+
+    var ls = "http://127.0.0.1:7100/?operacao=" + operacao + query;
+    console.log(ls);
+      $.ajax({
+          "url": ls,
+          "success": function(result) {
+            console.log("to no ajax");
+            if (operacao == "realizarLogin")
+              redirecionamento(result);
+          }
+
+      });
+
+  }
+
+  function redirecionamento(r){
+      console.log(r.tipo);
+      if (r.tipo == "locador"){
+      location.href = "Locador.html";
+    } else if (r.tipo == "locatario"){
+      location.href = "Locatario.html";
+    } else location.href = "Estacionamento.html";
+
+  }
+
+
+  function validarEmail(){
+
+    console.log('to validando')
+    ajax("&realizarLogin", "email=" + $("#useremail").val() + "&senha=" + $("#usersenha").val());
+
+  }
+
+</script>>
+
   </body>
 </html>
