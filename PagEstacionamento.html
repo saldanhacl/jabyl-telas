@@ -68,37 +68,25 @@
 
             <div class="row" style="margin-bottom: 20px">
 
-                <div class="col-lg-11"  style="margin: 15px 0px 0px 15px">
-                  <div class="articles card"  style="height: 400px; overflow-y: scroll">
-                    <div class="card-close">
-                    </div>
-                    <div class="card-header d-flex align-items-center">
-                      <h2 class="h3">Histórico</h2>
+                <div class="col-lg-11" style="margin: 0px 0px 0px 15px">
+                  <div class="articles card">
+                     <div class="card-close">
+                       </div>
+
+
+                  <div class="card-header d-flex align-items-center">
+                      <h2 class="h3">Histórico de Aluguéis</h2>
                     </div>
                     <div class="card-body no-padding">
-                      <div class="item d-flex align-items-center">
-                        <div class="text"><a href="#">
-                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Aria Smith.   </small></div>
-                      </div>
-                      <div class="item d-flex align-items-center">
-                        <div class="text"><a href="#">
-                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Frank Williams.   </small></div>
-                      </div>
-                      <div class="item d-flex align-items-center">
-                        <div class="text"><a href="#">
-                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Ashley Wood.   </small></div>
-                      </div>
-                      <div class="item d-flex align-items-center">
-                        <div class="text"><a href="#">
-                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Jason Doe.   </small></div>
-                      </div>
-                      <div class="item d-flex align-items-center">
-                        <div class="text"><a href="#">
-                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Sam Martinez.   </small></div>
-                      </div>
+                      <div id="historicoEst">
+                        
                     </div>
-                  </div>
+                    </div>
+
+                    
+
                 </div>
+            </div>
 
                 <div class="col-lg-11" style="margin: 0px 0px 0px 15px">
                   <div class="articles card">
@@ -110,7 +98,7 @@
                       <h2 class="h3">Carros no Estacionamento</h2>
                     </div>
                     <div class="card-body no-padding">
-                      <div id="carrosNoEst">
+                      <div id="carrosNoEst" style="margin-top: 20px">
                         
                     </div>
                     </div>
@@ -149,39 +137,63 @@
   
 $(document).ready(function(){
   ajax("mostrarCarrosNoEstacionamento", "");
+  ajax("mostrarHistorico", "");
 });
 
 function ajax(operacao, query){
 
     var ls = "http://127.0.0.1:7100/?operacao=" + operacao + query;
-    console.log(ls);
       $.ajax({
 
           "url": ls,
           "success": function(result) {
             if (operacao == "mostrarCarrosNoEstacionamento")
-              alt(result);
-          }
+              adicionarCarrosNoEst(result);
+            if (operacao == "mostrarHistorico")
+              adicionarHistorico(result);
+
+          } 
 
       });
 
   }
 
-  function alt(r){
-    r.forEach(function(carro, index){
-      //console.log(index + ": " + carro.Dono);
+  function adicionarCarrosNoEst(r){
+    r.forEach(function(carro){
       var inHtml = '<div class="itemCard"> <div class="fotoCarro"></div>'; 
 
 
-      inHtml += '<span class="item d-flex align-items-center" style="width=100%;"><div class="text"><h3 class="h5">Dono</h3><small>' + carro.Dono + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center" style="width=100%"><div class="text"><h3 class="h5">Modelo</h3><small>' + carro.Modelo + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center" style="width=100%"><div class="text"><h3 class="h5">Placa</h3><small>' + carro.Placa + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center" style="width=100%"><div class="text"><h3 class="h5">Ano</h3><small>' + carro.Ano + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center" style="width=100%"><div class="text"><h3 class="h5">Cor</h3><small>' + carro.Cor + '</small></div></span>';
+      inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%;"><div class="text"><h3 class="h5">Dono</h3><small>' + carro.Dono + '</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%"><div class="text"><h3 class="h5">Modelo</h3><small>' + carro.Modelo + '</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%"><div class="text"><h3 class="h5">Placa</h3><small>' + carro.Placa + '</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%"><div class="text"><h3 class="h5">Ano</h3><small>' + carro.Ano + '</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%"><div class="text"><h3 class="h5">Cor</h3><small>' + carro.Cor + '</small></div></span>';
 
-      inHtml += '<div style="clear: both"></div></div>';
+      inHtml += '<div style="clear: both"></div> <button class="btn btn-primary alugar-carro" type="submit">Alugar Carro</button> <hr/>  </div>';
 
       $("#carrosNoEst").html($("#carrosNoEst").html() + inHtml);
+
+    });
+
+  }
+
+  function adicionarHistorico(r){
+
+    r.forEach(function(historico){
+
+      var inHtml = '<div class="itemCard">'; 
+
+
+      inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Carro</h3><small>' + historico.carro + '</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Locatário</h3><small>' + historico.locatario + '</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Locador</h3><small>' + historico.locador + '</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Distância</h3><small>' + historico.distancia + 'km</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Data de aluguel</h3><small>' + historico.dataAluguel + '</small></div></span>';
+       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Data de retorno</h3><small>' + historico.dataRetorno + '</small></div></span>';
+
+      inHtml += '<div style="clear: both"></div></div><hr/>';
+
+      $("#historicoEst").html($("#historicoEst").html() + inHtml);
 
     });
 
@@ -190,15 +202,35 @@ function ajax(operacao, query){
 </script>
 
 <style>
+
+  .alugar-carro{
+    margin-left: 15px;
+    background-color: #33475c;
+    border-color: #33475c;
+  }  
+
+  .alugar-carro:hover{
+    margin-left: 15px;
+    background-color: #33475c;
+    border-color: #33475c;
+  }  
+
   .itemCard {
     width: 100%;
     height: auto;
   }
-  .item {
+  .itemCarros {
     display: inline-block !important;
     width: 17%;
 
   }
+
+  .itemHistorico {
+    display: inline-block !important;
+    width: 16%;
+
+  }
+
    .fotoCarro {
     display: inline-block;
     background-image: url("http://vignette1.wikia.nocookie.net/disney/images/a/ad/Cars_Lighting_Mcqueen.png/revision/latest?cb=20150716145843&path-prefix=pt-br");
