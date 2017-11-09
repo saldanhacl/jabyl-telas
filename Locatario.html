@@ -1,104 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
   <head>
-
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Página do Locatário</title>
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- Custom styles for this template -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
-	
-	
-	
-	
-	
-	
-	
-	
-	<style>
-#tela {
-	float: left;
-}
-#historico {
-   float: left;
-}
-#mapa {
-	float: left;
-}
-</style>
-
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="css/fontastic.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-  
-    
-  <!--NavBar -->
- 
- 
-<div >
-    <nav  class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div  class="container">
-         <img class="img-fluid" src="img/logoBranca.png" alt="">
+  <body>
+    <div class="page home-page">
+      <!-- Main Navbar-->
+      <header class="header">
+        <nav class="navbar">
+
+          <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+              <!-- Navbar Header-->
+              <div class="navbar-header"> 
+                  <div class="brand-text brand-big"><span> Página do Locatário </span></div>
+              </div>
+              <!-- Navbar Menu -->
+              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Logout    -->
+                <li class="nav-item"><a href="login.html" class="nav-link logout">Sair<i class="fa fa-sign-out"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+          <!-- Sidebar Header-->
+          <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="img/perfil.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="title">
+              <h1 class="h4">Lucas Saldanha</h1>
+              <p>Locatário</p>
+            </div>
+          </div>
+          <ul class="list-unstyled">
+            <li class="active"> <a href=""><i></i>Reservar Carro</a></li>
+            <li> <a href=""> <i></i>Ajuda </a></li>
+        </nav>
+        <div class="content-inner">
         
-        <div class="collapse navbar-collapse"  id="navbarResponsive">
-          <ul  class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">ENTRAR</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">QUEM SOMOS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">AJUDA?</a>
-            </li>
-          </ul>
-        </div>
+ <!-- Histórico -->
+
+            <div class="row" style="margin-bottom: 50px">
+
+                <div class="col-lg-5"  style="margin: 15px 0px 0px 15px">
+                  <div class="articles card">
+                    <div class="card-close">
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h2 class="h3">Histórico</h2>
+                    </div>
+                    <div class="card-body no-padding">
+                      <div class="item d-flex align-items-center">
+                        <div class="text"><a href="#">
+                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Aria Smith.   </small></div>
+                      </div>
+                      <div class="item d-flex align-items-center">
+                        <div class="text"><a href="#">
+                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Frank Williams.   </small></div>
+                      </div>
+                      <div class="item d-flex align-items-center">
+                        <div class="text"><a href="#">
+                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Ashley Wood.   </small></div>
+                      </div>
+                      <div class="item d-flex align-items-center">
+                        <div class="text"><a href="#">
+                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Jason Doe.   </small></div>
+                      </div>
+                      <div class="item d-flex align-items-center">
+                        <div class="text"><a href="#">
+                            <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Sam Martinez.   </small></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6" style="margin: 15px 0px 0px 15px">
+                  <div class="articles card">
+                     <div class="card-close">
+                       </div>
+
+                  <div class="card-header d-flex align-items-center">
+                      <h2 class="h3">Estacionamentos próximos</h2>
+                    </div>
+
+                      <div id="googleMap" style="width:100%;height:395px;"></div>
+
+                      <script>
+                      function myMap() {
+                      var mapProp= {
+                          center:new google.maps.LatLng(-19.9327662,-43.9360159),
+                          zoom:5,
+                      };
+                      var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                      }
+                      </script>
+
+                      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHOR7mY8a8kZrSKcfpi5GXw4FoCSMzOTE&callback=myMap"></script>
+
+                </div>
+            </div>
+          </div>
+
+              <footer class="main-footer" style="position: absolute;bottom: 0; width: 100%">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p>Jabyl &copy; 2017-2017</p>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">Bootstrapious</a></p>
+                      <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                    </div>
+                  </div>
+                </div>
+              </footer>
       </div>
-   
-    </nav>
-  </div>
-
-<form < action="Script_do_Formulario.php" method="post">
-</br>
-<!-- Locatario -->
-    <section id="locatario">
-	<h2 class="text-center">Locatario</h2>
-        <hr class="star-primary">
-		<br><br><br><br>
-		<div id="tela">
-        <img align="left" height="150" width="150" src="img/profile.png">
-		<br><br><br><br><br><br><br><br>
-		<button class="btn btn-success btn-lg">Reservar Carro</button>
-		<br><br>
-		<button class="btn btn-success btn-lg">     Ajuda    </button>
-		<br><br>
-		<button class="btn btn-success btn-lg">     Sair     </button>
-		</div>
-		<div id="historico" align="center">
-		<h2 class="text-center">Historico</h2>
-		<div style="width:600px; height: 300px; overflow:scroll;">   
-		Teste<br>
-		Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>Teste<br>
-</div>
-<br><br><br><br><br>
-</div>
-		<div id="mapa" align="center">
-		<h2 class="text-center">Estacionamentos proximos</h2>
-<script align="center" src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:300px;width:500px;'><div id='gmap_canvas' style='height:500px;width:500px;'></div><div><small><a href="http://embedgooglemaps.com">embedgooglemaps.com/pt/</a></small></div><div><small><a href="http://www.googlemapsgenerator.com/en/">http://www.googlemapgenerator.com</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:15,center:new google.maps.LatLng(-19.9321635,-43.938000399999964),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-19.9321635,-43.938000399999964)});infowindow = new google.maps.InfoWindow({content:'<strong>Puc</strong><br>Praça da Liberdade<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
-		</div>
-		
-    </section>
+    <!-- Javascript files-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <script src="js/front.js"></script>
   </body>
-
 </html>
