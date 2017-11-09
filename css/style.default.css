@@ -443,7 +443,6 @@ nav.side-navbar ul a {
 
 nav.side-navbar ul a:hover {
   background: #F05F40;
-  border-left: 4px solid #3b25e6;
   color: #fff;
 }
 
@@ -1862,7 +1861,7 @@ section.forms .line {
 }
 
 .login-page .form-holder .info {
-  background-color: #F05F40;
+  background: rgba(240, 95, 64, 0.9); 
   color: #fff;
 }
 
@@ -1892,6 +1891,7 @@ section.forms .line {
 .login-page .form-holder .form #login, .login-page .form-holder .form #register {
   margin-bottom: 20px;
   cursor: pointer;
+  color: #FFF;
 }
 
 .login-page .form-holder .form a.forgot-pass, .login-page .form-holder .form a.signup {

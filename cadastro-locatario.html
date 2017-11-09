@@ -34,25 +34,30 @@
               <div class="form d-flex align-items-center">
                 <div class="content">
                   <form id="register-form">
-                    <div class="form-group">
-                      <input id="register-email" type="email" name="registerEmail" required class="input-material">
-                      <label for="register-email" class="label-material">Nome     </label>
+                    <div class="form-group">                     
+                      <input id="register-nome" type="text" name="registerNome" required class="input-material">
+                      <label for="register-nome" class="label-material">Nome</label>
                     </div>
                     <div class="form-group">
-                      <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
-                      <label for="register-passowrd" class="label-material">Telefone        </label>
+                      <input id="register-telefone" type="telefone" name="registerTelefone" required class="input-material">
+                      <label for="register-telefone" class="label-material">Telefone        </label>
                     </div>
+                    <div id="pessoa-fisica">
+                      <div class="form-group">
+                        <input id="register-sobrenome" type="text" name="registerSobrenome" required class="input-material">
+                        <label for="register-sobrenome" class="label-material">Sobrenome     </label>
+                      </div>
+                      <div class="form-group">
+                        <input id="register-rg" type="text" name="registerRG" required class="input-material">
+                        <label for="register-rg" class="label-material">RG        </label>
+                      </div>
+                      <div class="form-group">
+                        <input id="register-cpf" type="password" name="registerCPF" required class="input-material">
+                        <label for="register-cpf" class="label-material">CPF        </label>
+                      </div>
                     <div class="form-group">
-                      <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
-                      <label for="register-passowrd" class="label-material">RG        </label>
-                    </div>
-                    <div class="form-group">
-                      <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
-                      <label for="register-passowrd" class="label-material">CPF        </label>
-                    </div>
-                    <div class="form-group">
-                      <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
-                      <label for="register-passowrd" class="label-material">CNH        </label>
+                      <input id="register-cnh" type="cnh" name="registerCNH" required class="input-material">
+                      <label for="register-cnh" class="label-material">CNH        </label>
                     </div>
                 </div>
               </div>
@@ -63,22 +68,22 @@
                 <div class="content">
                   <form id="register-form">
                     <div class="form-group">
-                      <input id="register-username" type="text" name="registerUsername" required class="input-material">
-                      <label for="register-username" class="label-material">Sobrenome</label>
-                    </div>
-                    <div class="form-group">
-                      <input id="register-username" type="text" name="registerUsername" required class="input-material">
+                      <input id="register-username" type="email" name="registerEmail" required class="input-material">
                       <label for="register-username" class="label-material">Email</label>
                     </div>
                     <div class="form-group">
-                      <input id="register-email" type="email" name="registerEmail" required class="input-material">
+                      <input id="register-email" type="password" name="registerPassword" required class="input-material">
                       <label for="register-email" class="label-material">Senha      </label>
+                    </div>
+                    <div class="form-group">
+                      <input id="register-passowrd" type="password" name="confirmPassword" required class="input-material">
+                      <label for="register-passowrd" class="label-material">Confirmar senha       </label>
                     </div>
                     <div class="form-group">
                       <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
                       <label for="register-passowrd" class="label-material">Confirmar senha       </label>
                     </div>
-                    <input id="register" type="submit" value="Registrar" class="btn btn-primary">
+                    <a href="Locatario.html" class="btn btn-primary">Cadastrar</a>
                   </form><small>Já tem uma conta? </small><a href="login.html" class="signup">Entrar</a>
                 </div>
               </div>
