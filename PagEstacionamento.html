@@ -78,7 +78,7 @@
                           <div class="card-header d-flex align-items-center">
                               <h2 class="h3">Histórico de Aluguéis</h2>
                             </div>
-                            <div class="card-body no-padding"  style="height: 400px">
+                            <div class="card-body"  style="overflow-y: scroll;height: 400px">
                               <div id="historicoEst">
                                 
                             </div>
@@ -89,7 +89,7 @@
                         </div>
                     </div>
 
-                        <div class="col-lg-11" style="margin: 0px 0px 0px 15px">
+                        <div class="col-lg-11">
                           <div class="articles card">
                              <div class="card-close">
                                </div>
@@ -98,8 +98,8 @@
                           <div class="card-header d-flex align-items-center">
                               <h2 class="h3">Carros no Estacionamento</h2>
                             </div>
-                            <div class="card-body no-padding" style="height: 400px">
-                              <div id="carrosNoEst" style="margin-top: 20px">
+                            <div class="card-body" style="height: 400px; overflow-y: scroll">
+                              <div id="carrosNoEst">
                                 
                             </div>
                             </div>
@@ -159,18 +159,29 @@ function ajax(operacao, query){
 
   }
 
+  function dadosRow(nome, dado){
+    return '<span class="item d-flex align-items-center itemCarros col-md-2" style="width=100%;"><div class="text"><h3 class="h5">' + nome + '</h3><small>' + dado + '</small></div></span>';
+  }
+
   function adicionarCarrosNoEst(r){
+
     r.forEach(function(carro){
-      var inHtml = '<div class="itemCard"> <div class="fotoCarro"></div>'; 
+      var inHtml = '<div class="itemCard">'; 
 
+      inHtml += '<img src="img/car-icon.png" class="rounded itemCarros foto-carro col-md-2">'
 
-      inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%;"><div class="text"><h3 class="h5">Dono</h3><small>' + carro.Dono + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%"><div class="text"><h3 class="h5">Modelo</h3><small>' + carro.Modelo + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%"><div class="text"><h3 class="h5">Placa</h3><small>' + carro.Placa + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%"><div class="text"><h3 class="h5">Ano</h3><small>' + carro.Ano + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemCarros" style="width=100%"><div class="text"><h3 class="h5">Cor</h3><small>' + carro.Cor + '</small></div></span>';
+      inHtml += this.dadosRow('Dono', carro.Dono);
+      inHtml += this.dadosRow('Modelo', carro.Modelo);
+      inHtml += this.dadosRow('Placa', carro.Placa);
+      inHtml += this.dadosRow('Ano', carro.Ano);
+      inHtml += this.dadosRow('Cor', carro.Cor);
+      inHtml += this.dadosRow('Alugado', carro.Alugado);
+      inHtml += this.dadosRow('Reservado', carro.Reservado);
 
-      inHtml += '<div style="clear: both"></div> <button class="btn btn-primary alugar-carro" type="submit">Alugar Carro</button> <hr/>  </div>';
+      inHtml += '<button class="btn btn-primary btn-md alugar-carro" type="submit"> Alugar Carro </button>';
+      inHtml += '<button class="btn btn-primary alugar-carro" type="submit"> Retornar Carro </button>';
+
+      inHtml += '<div style="clear: both"></div></div><hr/>';
 
       $("#carrosNoEst").html($("#carrosNoEst").html() + inHtml);
 
@@ -184,13 +195,12 @@ function ajax(operacao, query){
 
       var inHtml = '<div class="itemCard">'; 
 
-
-      inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Carro</h3><small>' + historico.carro + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Locatário</h3><small>' + historico.locatario + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Locador</h3><small>' + historico.locador + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Distância</h3><small>' + historico.distancia + 'km</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Data de aluguel</h3><small>' + historico.dataAluguel + '</small></div></span>';
-       inHtml += '<span class="item d-flex align-items-center itemHistorico"><div class="text"><h3 class="h5">Data de retorno</h3><small>' + historico.dataRetorno + '</small></div></span>';
+      inHtml += this.dadosRow('Carro', historico.carro);
+      inHtml += this.dadosRow('Locatário', historico.locatario);
+      inHtml += this.dadosRow('Locador', historico.locador);
+      inHtml += this.dadosRow('Distância percorrida', historico.distancia);
+      inHtml += this.dadosRow('Hora de aluguel', historico.dataAluguel);
+      inHtml += this.dadosRow('Hora de retorno', historico.dataRetorno);
 
       inHtml += '<div style="clear: both"></div></div><hr/>';
 
@@ -205,13 +215,13 @@ function ajax(operacao, query){
 <style>
 
   .alugar-carro{
-    margin-left: 15px;
-    background-color: #33475c;
-    border-color: #33475c;
+    background-color: #2f333e;
+    border-color: #F05F40;
+    font-size: 12px;
+
   }  
 
   .alugar-carro:hover{
-    margin-left: 15px;
     background-color: #33475c;
     border-color: #33475c;
   }  
@@ -220,35 +230,22 @@ function ajax(operacao, query){
     width: 100%;
     height: auto;
   }
+
   .itemCarros {
-    display: inline-block !important;
-    width: 17%;
-
-  }
-
-  .itemHistorico {
     display: inline-block !important;
     width: 16%;
 
   }
 
-   .fotoCarro {
-    display: inline-block;
-    background-image: url("http://vignette1.wikia.nocookie.net/disney/images/a/ad/Cars_Lighting_Mcqueen.png/revision/latest?cb=20150716145843&path-prefix=pt-br");
-    background-size: 100% 100%;
-    width: 10%;
-    height: 70px;
-    float: left;
-    margin: 10px;
-    padding: 30px;
-    border-radius: 100px;
-    border: 1px solid;
-    transition: 5s;
+  .foto-carro{
+    border: solid #2f333e 2px;
   }
-  .fotoCarro:hover {
-    transform: rotate(360deg);
-    -webkit-transition: -webkit-transform 0.8s ease-in;
+
+  .itemHistorico {
+    display: inline-block !important;
+    width: 16%;
   }
+
 </style>
 
   </body>
