@@ -36,7 +36,9 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
 
 .bg-primary {
-  background-color: #F05F40 !important; }
+  background-color: #F05F40 !important;
+  font-size: 12px;
+ }
 
 .bg-dark {
   background-color: #212529 !important; }
@@ -215,7 +217,6 @@ header.masthead {
 .btn {
   font-weight: 700;
   margin: 5px;
-  text-transform: uppercase;
   border: none;
   border-radius: 300px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
