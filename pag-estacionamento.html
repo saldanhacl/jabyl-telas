@@ -187,79 +187,135 @@
     </div>
   </div>
 
+  <!-- ModalAluguel-->
+  <div id="ModalAluguel" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="ModalAluguel" class="modal-title">Registrar Aluguel</h3>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>ID do veículo</label>
+              <input type="id" id="IDAluguel" class="form-control">
+            </div>
+            <div class="form-group">       
+              <label>Odômetro</label>
+              <input id="OdoAluguel"   class="form-control">
+            </div>
+            <div class="form-group">
+             <label>E-mail do Locatário</label>
+             <input type="email" id="emailAluguel" class="form-control">
+           </div>
+         </form>
+       </div>
+       <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
+        <button type="button" class="btn btn-primary">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- Javascript files-->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="vendor/popper.js/umd/popper.min.js"> </script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-  <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-  <script src="js/charts-home.js"></script>
-  <script src="js/front.js"></script>
-
-  <script>
-
-    $(document).ready(function(){
-      ajax("mostrarCarrosNoEstacionamento", "");
-      ajax("mostrarHistorico", "");
-    });
-
-    function ajax(operacao, query){
-
-      var ls = "http://127.0.0.1:7100/?operacao=" + operacao + query;
-      $.ajax({
-
-        "url": ls,
-        "success": function(result) {
-          if (operacao == "mostrarCarrosNoEstacionamento")
-            adicionarCarrosTable(result);
-          if (operacao == "mostrarHistorico")
-            adicionarHistoricoTable(result);
-
-        } 
-
-      });
-
-    }
-
-
-    function adicionarHistoricoTable(r){
-
-      r.forEach(function(historico){
-
-        $("#conteudo-historico").append('<tr>');
-
-        $("#conteudo-historico").append('<td>' + historico.carro + '</td>');
-
-        $("#conteudo-historico").append('<td>' + historico.locatario + '</td>');
-        $("#conteudo-historico").append('<td>' + historico.locador + '</td>');
-        $("#conteudo-historico").append('<td>' + historico.distancia + 'km</td>');
-        $("#conteudo-historico").append('<td>' + historico.dataAluguel + '</td>');
-        $("#conteudo-historico").append('<td>' + historico.dataRetorno + '</td>')
-
-        $("#conteudo-historico").append('<tr>');
-
-
-
-      });
+<!-- ModalRetorno-->
+<div id="ModalRetorno" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" class="modal fade text-left">
+  <div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="ModalRetorno" class="modal-title">Registrar Devolução</h3>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>ID do veículo</label>
+            <input type="id" id="IDRetorno"  class="form-control">
+          </div>
+          <div class="form-group">       
+            <label>Odômetro</label>
+            <input id="OdoRetorno"   class="form-control">
+          </div>
+          <div>
+            <label>E-mail do Locatário</label>
+            <input type="email" id="emailRetorno" class="form-control">
+          </div>
 
 
-    }
+          <!-- Javascript files-->
+          <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+          <script src="vendor/popper.js/umd/popper.min.js"> </script>
+          <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+          <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+          <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+          <script src="js/charts-home.js"></script>
+          <script src="js/front.js"></script>
 
-    function adicionarCarrosTable(r){
+          <script>
 
-      r.forEach(function(carro){
+            $(document).ready(function(){
+              ajax("mostrarCarrosNoEstacionamento", "");
+              ajax("mostrarHistorico", "");
+            });
 
-        $("#conteudo-carros").append('<tr>');
+            function ajax(operacao, query){
 
-        $("#conteudo-carros").append('<td>' + carro.Modelo + '<a class="alugar-carro">Alugar</a><a class="alugar-carro">Retornar</a></td>');
-        $("#conteudo-carros").append('<td>' + carro.Dono + '</td>');
-        $("#conteudo-carros").append('<td>' + carro.Placa + '</td>');
-        $("#conteudo-carros").append('<td>' + carro.Ano + '</td>');
-        $("#conteudo-carros").append('<td>' + carro.Cor + '</td>');
-        $("#conteudo-carros").append('<td>' + carro.Alugado + '</td>');
-        $("#conteudo-carros").append('<td>' + carro.Reservado + '</td>');
+              var ls = "http://127.0.0.1:7100/?operacao=" + operacao + query;
+              $.ajax({
+
+                "url": ls,
+                "success": function(result) {
+                  if (operacao == "mostrarCarrosNoEstacionamento")
+                    adicionarCarrosTable(result);
+                  if (operacao == "mostrarHistorico")
+                    adicionarHistoricoTable(result);
+
+                } 
+
+              });
+
+            }
+
+
+            function adicionarHistoricoTable(r){
+
+              r.forEach(function(historico){
+
+                $("#conteudo-historico").append('<tr>');
+
+                $("#conteudo-historico").append('<td>' + historico.carro + '</td>');
+
+                $("#conteudo-historico").append('<td>' + historico.locatario + '</td>');
+                $("#conteudo-historico").append('<td>' + historico.locador + '</td>');
+                $("#conteudo-historico").append('<td>' + historico.distancia + 'km</td>');
+                $("#conteudo-historico").append('<td>' + historico.dataAluguel + '</td>');
+                $("#conteudo-historico").append('<td>' + historico.dataRetorno + '</td>')
+
+                $("#conteudo-historico").append('<tr>');
+
+
+
+              });
+
+
+            }
+
+            function adicionarCarrosTable(r){
+
+              r.forEach(function(carro){
+
+                $("#conteudo-carros").append('<tr>');
+
+                $("#conteudo-carros").append('<td>' + carro.Modelo + '<a data-toggle="modal" data-target="#ModalAluguel" class="alugar-carro">Alugar</a><a data-toggle="modal" data-target="#ModalAluguel" class="alugar-carro">Retornar</a></td>');
+                
+                $("#conteudo-carros").append('<td>' + carro.Dono + '</td>');
+                $("#conteudo-carros").append('<td>' + carro.Placa + '</td>');
+                $("#conteudo-carros").append('<td>' + carro.Ano + '</td>');
+                $("#conteudo-carros").append('<td>' + carro.Cor + '</td>');
+                $("#conteudo-carros").append('<td>' + carro.Alugado + '</td>');
+                $("#conteudo-carros").append('<td>' + carro.Reservado + '</td>');
 
       // $("#conteudo-carros").append('<td>  <button class="btn btn-primary btn-md" type="submit"> Alugar Carro </button> </td>');
       // $("#conteudo-carros").append('<td>  <button class="btn btn-primary btn-md" type="submit"> Retornar Carro </button> </td>');
@@ -272,51 +328,51 @@
 
 
 
-    }
+            }
 
-  </script>
+          </script>
 
-  <style>
+          <style>
 
-  .card-body {
-    overflow-y: scroll;
-    height: 400px;
+          .card-body {
+            overflow-y: scroll;
+            height: 400px;
 
-  }
+          }
 
-  .alugar-carro{
-    color: #F05F40 !important;
-    padding: 0px !important;
-    margin: 0px !important;
-    transition: all .2s ease-in-out;
-  }  
+          .alugar-carro{
+            color: #F05F40 !important;
+            padding: 0px !important;
+            margin: 0px !important;
+            transition: all .2s ease-in-out;
+          }  
 
-  .alugar-carro:hover{
-    cursor: pointer;
-    transform: scale(1.3);
-  }  
+          .alugar-carro:hover{
+            cursor: pointer;
+            transform: scale(1.3);
+          }  
 
-  .itemCard {
-    width: 100%;
-    height: auto;
-  }
+          .itemCard {
+            width: 100%;
+            height: auto;
+          }
 
-  .itemCarros {
-    display: inline-block !important;
-    width: 16%;
+          .itemCarros {
+            display: inline-block !important;
+            width: 16%;
 
-  }
+          }
 
-  .foto-carro{
-    border: solid #2f333e 2px;
-  }
+          .foto-carro{
+            border: solid #2f333e 2px;
+          }
 
-  .itemHistorico {
-    display: inline-block !important;
-    width: 16%;
-  }
+          .itemHistorico {
+            display: inline-block !important;
+            width: 16%;
+          }
 
-</style>
+        </style>
 
-</body>
-</html>
+      </body>
+      </html>
